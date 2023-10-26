@@ -38,6 +38,6 @@ side_btop() {
 
 alias la="ls -a"
 alias ktx="kitty tmux"
-alias sudo-env="sudo -e env \"PATH=$PATH\""
+alias sudo-env="sudo -E env \"PATH=$PATH\""
 alias dnfin="sudo dnf install"
 alias reload="source ~/.config/zsh/.zshrc"
