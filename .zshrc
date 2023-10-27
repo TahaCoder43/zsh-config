@@ -36,6 +36,12 @@ side_btop() {
                                                   # and once btop closes his kitty window will close too
 }
 
+load-env() {
+    for line in $(cat .env); do
+        export $line;
+    done
+}
+
 alias la="ls -a"
 alias ktx="kitty tmux"
 alias sudo-env="sudo -E env \"PATH=$PATH\""
