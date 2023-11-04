@@ -21,11 +21,11 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 . "$HOME/.cargo/env"
 
-export EDITOR=/usr/bin/nvim
-export PAGER="/usr/bin/nvim -R"
+export EDITOR="/run/current-system/sw/bin/nvim"
+export PAGER="/run/current-system/sw/bin/nvim -R"
 export PATH=$PATH:~/.local/bin
 
-eval "$(oh-my-posh init zsh --config /home/taham/.posh_themes/clean-detailed.omp.json)" 
+eval "$(oh-my-posh init zsh --config /run/current-system/sw/share/oh-my-posh/themes/clean-detailed.omp.json)" 
 
 vimmed() {
     eval "$@" > /tmp/output_vimmed && nvim /tmp/output_vimmed
