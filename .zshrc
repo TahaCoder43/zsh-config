@@ -24,8 +24,10 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export EDITOR=/usr/bin/nvim
 export PAGER="/usr/bin/nvim -R"
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/go/bin
 
 eval "$(oh-my-posh init zsh --config /home/taham/.posh_themes/clean-detailed.omp.json)" 
+printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
 
 vimmed() {
     eval "$@" > /tmp/output_vimmed && nvim /tmp/output_vimmed
