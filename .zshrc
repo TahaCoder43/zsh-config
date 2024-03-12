@@ -22,7 +22,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 
 export EDITOR=/usr/bin/nvim
-export PAGER="/usr/bin/nvim -R"
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/go/bin
 
