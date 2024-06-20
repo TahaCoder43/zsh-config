@@ -23,7 +23,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export EDITOR=/usr/bin/nvim
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/go/bin/
 
 eval "$(oh-my-posh init zsh --config $HOME/.posh_themes/clean-detailed.omp.json)" 
 
