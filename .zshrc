@@ -25,7 +25,8 @@ export EDITOR=/usr/bin/nvim
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/go/bin
 
-eval "$(oh-my-posh init zsh --config /home/taham/.posh_themes/clean-detailed.omp.json)" 
+eval "$(oh-my-posh init zsh --config $HOME/.posh_themes/clean-detailed.omp.json)" 
+
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
 
 vimmed() {
