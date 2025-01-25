@@ -18,19 +18,14 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 unset command_not_found_handle
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 export EDITOR=/usr/bin/nvim
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/go/bin/
-export PATH=$PATH:~/Softwares/Python/bin
 export XDG_CONFIG_HOME=/home/$USER/.config/
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/my-themes/bubblescustom.omp.json)" 
-
-# printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
 
 vimmed() {
     eval "$@" > /tmp/output_vimmed && cd /tmp && nvim output_vimmed
@@ -47,55 +42,9 @@ load-env() {
     done
 }
 
-py() {
-    local command=$1
-    shift
-
-    if [[ -e /home/taham/Softwares/Python/bin/$command ]]; then
-        /home/taham/Softwares/Python/bin/$command $@
-    else
-        echo "py command not found '$command'"
-    fi
-}
-
-get-total-size() {
-    rm -rf /tmp/dependencies-size.csv
-    touch /tmp/dependencies-size.csv
-
-    get-dependencies-size $1
-
-    awk 'BEGIN { sum_size=0; } {
-    switch ($NF) {
-        case "KiB":
-            size = $(NF-1) / 1024
-            break
-        case "MiB":
-            size = $(NF-1)
-            break
-    }
-    sum_size += size
-    } END { print sum_size "MiB" }' /tmp/dependencies-size.csv
-
-    rm -rf /tmp/dependencies-size.csv
-}
-
-get-dependencies-size() {
-    apk info --depends $1 | {
-        read get_lost
-        while read package; do
-            read installed < <(apk info --installed $package)
-            if [[ $installed == "" ]]; then # if not installed
-                { read get_lost; read size; } < <(apk info --size $package)
-                echo $package: $size >> /tmp/dependencies-size.csv
-            fi
-        done
-    }
-}
-
 alias la="ls -a"
 alias ktx="kitty tmux"
+alias vi="nvim"
 alias sudo-env="sudo -E env \"PATH=$PATH\""
-alias dnfin="sudo dnf install"
 alias reload="source ~/.config/zsh/.zshrc"
-alias pyrepl="py ptpython --vi"
-alias blender="LIBGL_ALWAYS_SOFTWARE=1 blender"
+#alias blender="LIBGL_ALWAYS_SOFTWARE=1 blender"
